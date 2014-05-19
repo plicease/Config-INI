@@ -95,7 +95,7 @@ sub read_handle {
 
   # parse the file
   LINE: while (my $line = $handle->getline) {
-    if ($handle->input_line_number == 1 && $line =~ /\A\x{FEFF}/) {
+    if ($. == 1 && $line =~ /\A\x{FEFF}/) {
       Carp::confess("input handle appears to start with a BOM");
     }
 
